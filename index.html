@@ -6,7 +6,7 @@
 <title>Kadre OS · A proposal from Clearworks</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
-:root{--ink:#1a1a1a;--muted:#8a8a8a;--line:#e6e6e6;--bg:#fff;--soft:#f5f4f2;--ink2:#3a3a3a}
+:root{--ink:#1a1a1a;--muted:#8a8a8a;--line:#e6e6e6;--bg:#fff;--soft:#f5f4f2;--ink2:#3a3a3a;--accent:#cc3366}
 *{box-sizing:border-box}
 html,body{margin:0;background:#f0efec;color:var(--ink);font:15px/1.6 "Montserrat",Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
 a{color:inherit}
@@ -24,7 +24,9 @@ img{max-width:100%}
 
 .wrap{max-width:860px;margin:0 auto;padding:0 18px}
 section{margin:42px auto}
-.eyebrow{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+.eyebrow{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-bottom:10px;font-weight:600}
+.heroimg{width:100%;height:200px;object-fit:cover;display:block;margin-bottom:26px}
+.expimg{width:100%;height:34px;object-fit:cover;display:block}
 .hh{font-weight:300;font-size:34px;line-height:1.15;letter-spacing:-.015em;margin:0 0 14px}
 .lede{font-size:16px;color:var(--ink2);max-width:640px}
 .lede p{margin:0 0 12px}
@@ -37,10 +39,10 @@ section{margin:42px auto}
 .demowrap{background:#fff;border:1px solid var(--line)}
 .demobar{display:flex;align-items:center;gap:18px;border-bottom:1px solid #111;padding:16px 22px}
 .brand{font-weight:700;font-size:15px;letter-spacing:.22em}
-.brand .os{font-weight:300;letter-spacing:.18em;color:var(--muted)}
+.brand .os{font-weight:300;letter-spacing:.18em;color:var(--accent)}
 .tabs{display:flex;gap:8px;margin-left:8px}
 .tab{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);background:none;border:1px solid var(--line);padding:7px 14px;cursor:pointer;font-family:inherit}
-.tab.on{color:#fff;background:var(--ink);border-color:var(--ink)}
+.tab.on{color:#fff;background:var(--accent);border-color:var(--accent)}
 .who{margin-left:auto;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
 .stage{padding:30px 34px 34px}
 .view{display:none;animation:fade .25s ease}
@@ -50,7 +52,7 @@ section{margin:42px auto}
 .h{font-weight:300;font-size:27px;letter-spacing:-.01em;margin:0 0 4px}
 .sub{color:var(--muted);font-size:13px;margin-bottom:22px}
 .wk{display:flex;align-items:center;gap:10px;margin:24px 0 12px}
-.wk .dot{width:6px;height:6px;border-radius:50%;background:var(--ink)}
+.wk .dot{width:6px;height:6px;border-radius:50%;background:var(--accent)}
 .wk .nm{font-weight:600;font-size:12px;letter-spacing:.16em;text-transform:uppercase}
 .wk .st{font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);border:1px solid var(--line);border-radius:2px;padding:2px 8px}
 .kpis{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line)}
@@ -78,13 +80,13 @@ textarea{min-height:58px}
 .btn:hover{background:#000}
 .drop{border:1px dashed #c9c9c9;padding:24px;text-align:center;color:var(--muted);font-size:12px}
 .or{text-align:center;color:var(--muted);font-size:10px;letter-spacing:.14em;text-transform:uppercase;margin:14px 0}
-.layer{border-left:1px solid var(--ink);padding-left:16px;margin:16px 0}
+.layer{border-left:2px solid var(--accent);padding-left:16px;margin:16px 0}
 .layer h3{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink);margin:0 0 7px}
 .kv{display:flex;gap:12px;padding:6px 0;font-size:12.5px;border-top:1px solid #f0f0f0}
 .kv:first-of-type{border-top:0}.kv .k{width:110px;color:var(--muted);flex:none;font-size:10px;letter-spacing:.06em;text-transform:uppercase;padding-top:2px}
 .tag{font-size:9px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);border:1px solid var(--line);border-radius:2px;padding:1px 6px;margin-left:6px}
 .tag.amber{color:var(--ink);border-color:var(--ink)}
-.angle{background:var(--soft);border-left:2px solid var(--ink);padding:13px 15px;font-size:12.5px;color:var(--ink2);margin-top:10px;line-height:1.6}
+.angle{background:var(--soft);border-left:2px solid var(--accent);padding:13px 15px;font-size:12.5px;color:var(--ink2);margin-top:10px;line-height:1.6}
 .check{display:flex;align-items:center;gap:11px;padding:9px 0;font-size:12.5px;border-top:1px solid #f0f0f0}
 .check:first-child{border-top:0}
 .box{width:15px;height:15px;border:1px solid var(--ink);background:var(--ink);position:relative;flex:none}
@@ -128,7 +130,7 @@ textarea{min-height:58px}
 .pcard .pn{font-weight:300;font-size:38px;letter-spacing:-.02em;margin:6px 0 2px}
 .pcard .pn small{font-size:15px;color:var(--muted);font-weight:400}
 .pcard .pd{font-size:13px;color:var(--ink2);line-height:1.55;margin-top:8px}
-.roi{background:var(--ink);color:#fff;padding:22px 26px;margin-top:14px;font-size:14px;line-height:1.6}
+.roi{background:var(--ink);color:#fff;padding:22px 26px;margin-top:14px;border-top:4px solid var(--accent);font-size:14px;line-height:1.6}
 .roi b{font-weight:600}
 
 /* ---------- proof ---------- */
@@ -178,6 +180,7 @@ footer .cw{font-size:12px;color:var(--ink);letter-spacing:.24em}
   <!-- HERO -->
   <section>
     <div class="hero">
+      <img class="heroimg" src="assets/emergency-housing.jpg" alt="Kadre supportive housing project">
       <div class="eyebrow">Kadre Architects · Nerin Kadribegovic</div>
       <h1 class="hh">Kadre OS</h1>
       <div class="lede">
@@ -301,8 +304,8 @@ footer .cw{font-size:12px;color:var(--ink);letter-spacing:.24em}
           <div class="pgrid">
             <div class="page"><div class="pg-in"><div class="phero"></div><div class="ttl">PATH Ventures — SOQ</div><div class="ln s"></div></div><div class="cap">Cover</div></div>
             <div class="page"><div class="pg-in"><div class="ttl">Design for social cause</div><div class="ln"></div><div class="ln"></div><div class="ln s"></div></div><div class="cap">Firm Overview</div></div>
-            <div class="page"><div class="pg-in"><div class="imgb"></div><div class="ttl" style="font-size:11px">The Sierra</div><div class="ln s"></div></div><div class="cap">Experience</div></div>
-            <div class="page"><div class="pg-in"><div class="imgb"></div><div class="ttl" style="font-size:11px">Hub City Heights</div><div class="ln s"></div></div><div class="cap">Experience</div></div>
+            <div class="page"><div class="pg-in"><img class="expimg" src="assets/single-person-homes.jpg" alt="Kadre project"><div class="ttl" style="font-size:11px">The Sierra</div><div class="ln s"></div></div><div class="cap">Experience</div></div>
+            <div class="page"><div class="pg-in"><img class="expimg" src="assets/betty-bazar.jpg" alt="Kadre project"><div class="ttl" style="font-size:11px">Hub City Heights</div><div class="ln s"></div></div><div class="cap">Experience</div></div>
             <div class="page"><div class="pg-in"><div class="ttl">Our approach</div><div class="ln"></div><div class="ln s"></div></div><div class="cap">Approach</div></div>
             <div class="page"><div class="pg-in"><div class="ttl">Fee + next</div><div class="ln s"></div><div class="imgb" style="margin-top:6px;background:#eef3f0"></div></div><div class="cap">Fee / Next</div></div>
           </div>
@@ -351,25 +354,35 @@ footer .cw{font-size:12px;color:var(--ink);letter-spacing:.24em}
 
   <!-- PROOF -->
   <section id="proof">
-    <div class="eyebrow">Proof</div>
-    <h2 class="hh">Who we've done this for</h2>
-    <div class="lede" style="margin-bottom:18px"><p>We build these systems into real firms' own stacks and run them. <span style="color:#b5b5b5">[Josh — replace the quotes below with real client testimonials + swap in client names/logos. Nothing here is invented; it's a placeholder for your real proof.]</span></p></div>
+    <div class="eyebrow">Proof · AEC</div>
+    <h2 class="hh">We speak architecture</h2>
+    <div class="lede" style="margin-bottom:8px"><p>Our co-founder sits on the AIA LA TAP Committee — the technology and practice group that sets direction for the profession. 25 years in professional-services technology, enough to know how principals think and where the hours actually go. We've done this work <em>inside</em> architecture and design studios — not adjacent to them.</p></div>
     <div class="proofgrid">
       <div class="tcard">
-        <div class="tqz">"[Real client quote — the outcome they got, in their words.]"</div>
-        <div class="tattr">[Name, Title] · [Client firm]</div>
+        <div class="tqz">"Working with Clearworks helped us not only identify but clearly name our biggest challenges — and as they say, naming the problem is the first step toward solving it."</div>
+        <div class="tattr">Melinda Prisco · Director of Operations · Studio PCH</div>
       </div>
       <div class="tcard">
-        <div class="tqz">"[Real client quote — what changed for them week to week.]"</div>
-        <div class="tattr">[Name, Title] · [Client firm]</div>
+        <div class="tqz">"Clearworks AI helped us outline a migration timeline, monitored the conversion of files, gave clear instruction to employees, and provided assistance post go-live. Our implementation was smooth and painless."</div>
+        <div class="tattr">Robin Nanney · Founder · Robin Nanney Studio</div>
+      </div>
+      <div class="tcard">
+        <div class="tqz">"Somebody other than me saying we can do this, and we can do this safely — that was the green light we needed."</div>
+        <div class="tattr">Catherine Suitor · Executive Director · L.A. Alliance Foundation</div>
+      </div>
+      <div class="tcard">
+        <div class="tqz">"Clearworks are exceptional teachers, highly patient, and deeply respectful of mission-driven work."</div>
+        <div class="tattr">Dr. Alexandra Chen · Executive Director · Early Light Foundation</div>
       </div>
     </div>
-    <div class="results">
-      <div class="rstat"><div class="rn">[X]</div><div class="rl">[Result metric — e.g. hrs/mo saved]</div></div>
-      <div class="rstat"><div class="rn">[X]</div><div class="rl">[Result metric — e.g. proposals/quarter]</div></div>
-      <div class="rstat"><div class="rn">[X]</div><div class="rl">[Result metric — e.g. systems live]</div></div>
+    <div class="slabel" style="margin:26px 4px 10px">Our AEC track record — firms we've partnered with directly</div>
+    <div class="results" style="grid-template-columns:1fr 1fr">
+      <div class="rstat" style="text-align:left"><div class="rn" style="font-size:15px;font-weight:600">Studio PCH</div><div class="rl">Busywork Audit — mapped where principal time leaked, found the highest-leverage automations</div></div>
+      <div class="rstat" style="text-align:left"><div class="rn" style="font-size:15px;font-weight:600">Robin Nanney Studio</div><div class="rl">AI builds + guided full stack migration, team kept aligned with minimal disruption</div></div>
+      <div class="rstat" style="text-align:left"><div class="rn" style="font-size:15px;font-weight:600">RELM</div><div class="rl">IT advisory — infrastructure + strategic recommendations for a growing practice</div></div>
+      <div class="rstat" style="text-align:left"><div class="rn" style="font-size:15px;font-weight:600">OFFICEUNTITLED</div><div class="rl">Ongoing technical guidance + tool strategy for a forward-thinking architecture office</div></div>
     </div>
-    <div class="note">Also proof: the Kadre OS demo above runs on your own real projects — The Sierra, Hub City Heights, The Alvarado. That's the research depth you'd get, on day one.</div>
+    <div class="note">And the Kadre OS demo above runs on your own real projects — The Sierra, Hub City Heights, The Alvarado. That's the research depth you'd get on day one.</div>
   </section>
 
   <!-- PRICING -->
