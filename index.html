@@ -202,7 +202,8 @@ footer .cw{font-size:12px;color:var(--ink);letter-spacing:.24em}
       <div class="demobar">
         <div class="brand">KADRE<span class="os"> OS</span></div>
         <div class="tabs">
-          <button class="tab on" id="tabLeads" onclick="go('dash')">Leads</button>
+          <button class="tab on" id="tabDash" onclick="go('dash')">Dashboard</button>
+          <button class="tab" id="tabLeads" onclick="go('add')">Leads</button>
           <button class="tab" id="tabProp" onclick="go('setup')">Proposals</button>
         </div>
         <div class="who">Nerin K.</div>
@@ -356,7 +357,7 @@ footer .cw{font-size:12px;color:var(--ink);letter-spacing:.24em}
   <section id="proof">
     <div class="eyebrow">Proof · AEC</div>
     <h2 class="hh">We speak architecture and mission-driven work</h2>
-    <div class="lede" style="margin-bottom:8px"><p>Our co-founder sits on the AIA LA TAP Committee — the technology and practice group that sets direction for the profession. 25 years in professional-services technology, enough to know how principals think and where the hours actually go. We've done this work <em>inside</em> architecture and design studios — not adjacent to them.</p></div>
+    <div class="lede" style="margin-bottom:8px;max-width:none"><p>Our co-founder sits on the AIA LA TAP Committee — the technology and practice group that sets direction for the profession. 25 years in professional-services technology, enough to know how principals think and where the hours actually go. We've done this work <em>inside</em> architecture and design studios — not adjacent to them.</p></div>
     <div class="proofgrid">
       <div class="tcard">
         <div class="tqz">"Working with Clearworks helped us not only identify but clearly name our biggest challenges — and as they say, naming the problem is the first step toward solving it."</div>
@@ -445,9 +446,8 @@ footer .cw{font-size:12px;color:var(--ink);letter-spacing:.24em}
 var VIEWS=['dash','add','detail','setup','output'];
 function go(id){
   VIEWS.forEach(function(v){var el=document.getElementById('v-'+v);if(el)el.classList.toggle('on',v===id);});
-  var prop=(id==='setup'||id==='output');
-  document.getElementById('tabProp').classList.toggle('on',prop);
-  document.getElementById('tabLeads').classList.toggle('on',!prop);
+  var tab=(id==='setup'||id==='output')?'tabProp':(id==='add'||id==='detail')?'tabLeads':'tabDash';
+  ['tabDash','tabLeads','tabProp'].forEach(function(t){document.getElementById(t).classList.toggle('on',t===tab);});
   document.querySelector('.stage').scrollIntoView({behavior:'smooth',block:'start'});
 }
 
