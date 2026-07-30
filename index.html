@@ -1,0 +1,486 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Kadre OS · A proposal from Clearworks</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+:root{--ink:#1a1a1a;--muted:#8a8a8a;--line:#e6e6e6;--bg:#fff;--soft:#f5f4f2;--ink2:#3a3a3a}
+*{box-sizing:border-box}
+html,body{margin:0;background:#f0efec;color:var(--ink);font:15px/1.6 "Montserrat",Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+img{max-width:100%}
+
+/* ---------- room chrome ---------- */
+.topbar{position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid #111;display:flex;align-items:center;gap:14px;padding:14px 22px}
+.cw{font-weight:700;font-size:13px;letter-spacing:.24em}
+.cw .t{font-weight:300;color:var(--muted)}
+.prep{margin-left:auto;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.roomnav{display:none;gap:22px;margin-left:8px}
+.roomnav a{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);text-decoration:none}
+.roomnav a:hover{color:var(--ink)}
+@media(min-width:760px){.roomnav{display:flex}}
+
+.wrap{max-width:860px;margin:0 auto;padding:0 18px}
+section{margin:42px auto}
+.eyebrow{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+.hh{font-weight:300;font-size:34px;line-height:1.15;letter-spacing:-.015em;margin:0 0 14px}
+.lede{font-size:16px;color:var(--ink2);max-width:640px}
+.lede p{margin:0 0 12px}
+
+/* ---------- hero ---------- */
+.hero{background:#fff;border:1px solid var(--line);padding:44px 40px;margin-top:26px}
+.hero .sig{margin-top:22px;font-size:13px;color:var(--muted)}
+
+/* ---------- demo frame ---------- */
+.demowrap{background:#fff;border:1px solid var(--line)}
+.demobar{display:flex;align-items:center;gap:18px;border-bottom:1px solid #111;padding:16px 22px}
+.brand{font-weight:700;font-size:15px;letter-spacing:.22em}
+.brand .os{font-weight:300;letter-spacing:.18em;color:var(--muted)}
+.tabs{display:flex;gap:8px;margin-left:8px}
+.tab{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);background:none;border:1px solid var(--line);padding:7px 14px;cursor:pointer;font-family:inherit}
+.tab.on{color:#fff;background:var(--ink);border-color:var(--ink)}
+.who{margin-left:auto;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.stage{padding:30px 34px 34px}
+.view{display:none;animation:fade .25s ease}
+.view.on{display:block}
+@keyframes fade{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+
+.h{font-weight:300;font-size:27px;letter-spacing:-.01em;margin:0 0 4px}
+.sub{color:var(--muted);font-size:13px;margin-bottom:22px}
+.wk{display:flex;align-items:center;gap:10px;margin:24px 0 12px}
+.wk .dot{width:6px;height:6px;border-radius:50%;background:var(--ink)}
+.wk .nm{font-weight:600;font-size:12px;letter-spacing:.16em;text-transform:uppercase}
+.wk .st{font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);border:1px solid var(--line);border-radius:2px;padding:2px 8px}
+.kpis{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line)}
+@media(min-width:640px){.kpis{grid-template-columns:1fr 1fr 1fr 1fr}}
+.kpi{background:#fff;padding:16px 15px}
+.kpi .n{font-weight:300;font-size:28px;line-height:1;letter-spacing:-.02em}
+.kpi .l{font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-top:8px;line-height:1.35}
+.kpi .d{font-size:10px;color:var(--ink2);margin-top:5px}
+.kpi.amber .n{border-bottom:2px solid var(--ink);padding-bottom:2px;display:inline-block}
+.card{background:#fff;border:1px solid var(--line);margin:10px 0}
+.slabel{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin:4px 0 8px}
+table{width:100%;border-collapse:collapse;font-size:12.5px}
+th,td{text-align:left;padding:11px 14px;border-top:1px solid var(--line)}
+tr:first-child th{border-top:0}
+th{font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:500}
+td .n{font-weight:600}
+tr.click{cursor:pointer}tr.click:hover td{background:var(--soft)}
+.pill{font-size:9px;letter-spacing:.1em;text-transform:uppercase;padding:2px 9px;border:1px solid var(--line);border-radius:2px;white-space:nowrap;color:var(--muted)}
+.pill.ok{background:var(--ink);color:#fff;border-color:var(--ink)}
+.pill.amber{color:var(--ink);border-color:var(--ink)}
+label{display:block;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:14px 0 6px}
+input,textarea,select{width:100%;border:1px solid var(--line);border-radius:0;padding:12px 14px;font:inherit;font-size:13px;background:#fff;color:var(--ink)}
+textarea{min-height:58px}
+.btn{margin-top:16px;background:var(--ink);color:#fff;border:0;border-radius:0;padding:13px 22px;font-weight:600;font-size:11px;letter-spacing:.14em;text-transform:uppercase;display:inline-block;cursor:pointer;font-family:inherit}
+.btn:hover{background:#000}
+.drop{border:1px dashed #c9c9c9;padding:24px;text-align:center;color:var(--muted);font-size:12px}
+.or{text-align:center;color:var(--muted);font-size:10px;letter-spacing:.14em;text-transform:uppercase;margin:14px 0}
+.layer{border-left:1px solid var(--ink);padding-left:16px;margin:16px 0}
+.layer h3{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink);margin:0 0 7px}
+.kv{display:flex;gap:12px;padding:6px 0;font-size:12.5px;border-top:1px solid #f0f0f0}
+.kv:first-of-type{border-top:0}.kv .k{width:110px;color:var(--muted);flex:none;font-size:10px;letter-spacing:.06em;text-transform:uppercase;padding-top:2px}
+.tag{font-size:9px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);border:1px solid var(--line);border-radius:2px;padding:1px 6px;margin-left:6px}
+.tag.amber{color:var(--ink);border-color:var(--ink)}
+.angle{background:var(--soft);border-left:2px solid var(--ink);padding:13px 15px;font-size:12.5px;color:var(--ink2);margin-top:10px;line-height:1.6}
+.check{display:flex;align-items:center;gap:11px;padding:9px 0;font-size:12.5px;border-top:1px solid #f0f0f0}
+.check:first-child{border-top:0}
+.box{width:15px;height:15px;border:1px solid var(--ink);background:var(--ink);position:relative;flex:none}
+.box:after{content:"";position:absolute;top:3px;left:3px;width:7px;height:7px;background:#fff}
+.box.off{background:#fff}.box.off:after{display:none}
+.pgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:10px}
+@media(min-width:640px){.pgrid{grid-template-columns:1fr 1fr 1fr}}
+.page{background:#fff;border:1px solid var(--line)}
+.page .cap{font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding:7px 9px;border-top:1px solid var(--line)}
+.pg-in{padding:11px;min-height:104px}
+.phero{height:46px;background:#1a1a1a}
+.imgb{height:34px;background:#e2e2e2}
+.ttl{font-weight:600;font-size:11px;letter-spacing:.04em;margin:8px 0 3px}
+.ln{height:4px;background:#ececec;margin:5px 0}.ln.s{width:55%}
+.tinytag{font-size:8.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);border:1px solid var(--line);padding:1px 6px}
+.note{font-size:11px;color:var(--muted);margin-top:18px;line-height:1.6}
+.crumbs{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:16px}
+.crumbs b{color:var(--ink)}
+.back{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);background:none;border:0;cursor:pointer;padding:0;margin-bottom:14px;font-family:inherit}
+.hint{text-align:center;font-size:11px;color:var(--muted);padding:10px 0 0}
+
+/* ---------- offer ---------- */
+.worker{background:#fff;border:1px solid var(--line);padding:26px 28px;margin:14px 0}
+.worker .wt{font-weight:600;font-size:13px;letter-spacing:.14em;text-transform:uppercase;margin:0 0 3px}
+.worker .wd{color:var(--muted);font-size:13px;margin-bottom:14px}
+.flow{display:grid;grid-template-columns:1fr;gap:0}
+@media(min-width:640px){.flow{grid-template-columns:repeat(4,1fr)}}
+.step{padding:12px 0;border-top:1px solid var(--line)}
+@media(min-width:640px){.step{border-top:0;border-left:1px solid var(--line);padding:2px 14px}.step:first-child{border-left:0;padding-left:0}}
+.step .sl{font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:5px}
+.step .sv{font-size:12.5px;color:var(--ink2);line-height:1.5}
+.outcome{margin-top:14px;font-size:13px;border-top:1px solid var(--line);padding-top:12px}
+.outcome b{font-weight:600}
+.notthis{background:#fff;border:1px solid var(--line);border-left:3px solid var(--ink);padding:18px 22px;font-size:13px;color:var(--ink2)}
+
+/* ---------- pricing ---------- */
+.price{display:grid;grid-template-columns:1fr;gap:14px}
+@media(min-width:640px){.price{grid-template-columns:1fr 1fr}}
+.pcard{background:#fff;border:1px solid var(--line);padding:26px 26px}
+.pcard .pl{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.pcard .pn{font-weight:300;font-size:38px;letter-spacing:-.02em;margin:6px 0 2px}
+.pcard .pn small{font-size:15px;color:var(--muted);font-weight:400}
+.pcard .pd{font-size:13px;color:var(--ink2);line-height:1.55;margin-top:8px}
+.roi{background:var(--ink);color:#fff;padding:22px 26px;margin-top:14px;font-size:14px;line-height:1.6}
+.roi b{font-weight:600}
+
+/* ---------- proof ---------- */
+.proofgrid{display:grid;grid-template-columns:1fr;gap:14px}
+@media(min-width:640px){.proofgrid{grid-template-columns:1fr 1fr}}
+.tcard{background:#fff;border:1px solid var(--line);padding:24px 26px}
+.tqz{font-weight:300;font-size:19px;line-height:1.5;letter-spacing:-.01em}
+.tattr{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:14px}
+.results{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line);margin-top:14px}
+.rstat{background:#fff;padding:20px 16px;text-align:center}
+.rstat .rn{font-weight:300;font-size:32px;letter-spacing:-.02em}
+.rstat .rl{font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-top:8px;line-height:1.35}
+
+/* ---------- faq ---------- */
+.q{background:#fff;border:1px solid var(--line);padding:18px 22px;margin:8px 0}
+.q .qq{font-weight:600;font-size:13.5px;margin-bottom:6px}
+.q .qa{font-size:13px;color:var(--ink2);line-height:1.6}
+
+/* ---------- accept ---------- */
+.accept{background:#fff;border:1px solid #111;padding:40px 36px;text-align:center;margin-bottom:20px}
+.accept .hh{margin-bottom:8px}
+.bigbtn{display:inline-block;margin-top:14px;background:var(--ink);color:#fff;text-decoration:none;padding:18px 40px;font-weight:600;font-size:12px;letter-spacing:.16em;text-transform:uppercase}
+.bigbtn:hover{background:#000}
+.accept .fine{font-size:11px;color:var(--muted);margin-top:14px}
+
+footer{border-top:1px solid var(--line);padding:26px 22px 46px;text-align:center;color:var(--muted);font-size:11px;letter-spacing:.1em}
+footer .cw{font-size:12px;color:var(--ink);letter-spacing:.24em}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="cw">CLEARWORKS</div>
+  <div class="roomnav">
+    <a href="#demo">The system</a>
+    <a href="#offer">What you get</a>
+    <a href="#proof">Proof</a>
+    <a href="#pricing">Investment</a>
+    <a href="#faq">FAQ</a>
+    <a href="#accept">Start</a>
+  </div>
+  <div class="prep">Prepared for Kadre Architects</div>
+</div>
+
+<div class="wrap">
+
+  <!-- HERO -->
+  <section>
+    <div class="hero">
+      <div class="eyebrow">Kadre Architects · Nerin Kadribegovic</div>
+      <h1 class="hh">Kadre OS</h1>
+      <div class="lede">
+        <p>Nerin — thanks for having me at the studio. Seeing how you build made the idea sharper.</p>
+        <p>The business has shifted: more work to bring in, with as little of your own time as possible. The bottleneck isn't the BD — you know the people and who to chase. It's the busywork stacked behind it: cleaning the list, keeping it current, and rebuilding every proposal by hand.</p>
+        <p>So here's the shape. Two Workers that do that busywork and hand it back — you stay on the parts only you do. Click through the system below, then the offer's underneath it.</p>
+      </div>
+      <div class="sig">— Josh, Clearworks</div>
+    </div>
+  </section>
+
+  <!-- DEMO -->
+  <section id="demo">
+    <div class="eyebrow">The system — click through it</div>
+    <h2 class="hh">Kadre OS, working</h2>
+    <div class="lede" style="margin-bottom:18px"><p>Sample data, your brand. Two sections: <b>Leads</b> (Lead Desk) and <b>Proposals</b> (Proposal Drafter). Tap the tabs and the buttons — it's live.</p></div>
+
+    <div class="demowrap">
+      <div class="demobar">
+        <div class="brand">KADRE<span class="os"> OS</span></div>
+        <div class="tabs">
+          <button class="tab on" id="tabLeads" onclick="go('dash')">Leads</button>
+          <button class="tab" id="tabProp" onclick="go('setup')">Proposals</button>
+        </div>
+        <div class="who">Nerin K.</div>
+      </div>
+      <div class="stage">
+
+        <!-- LEADS: dashboard -->
+        <div class="view on" id="v-dash">
+          <div class="h">Dashboard</div><div class="sub">Your growth engine — both Workers, live.</div>
+          <div class="wk"><span class="dot"></span><span class="nm">Lead Desk</span><span class="st">running</span></div>
+          <div class="kpis">
+            <div class="kpi"><div class="n">86</div><div class="l">Funders + agencies mapped</div><div class="d">+14 this month</div></div>
+            <div class="kpi"><div class="n">29</div><div class="l">Warm + ready</div><div class="d">verified contact</div></div>
+            <div class="kpi amber"><div class="n">6</div><div class="l">Funded projects, no architect yet</div><div class="d">why-now — reach first</div></div>
+            <div class="kpi"><div class="n">15</div><div class="l">Refreshed this week</div><div class="d">3 new Homekey awards</div></div>
+          </div>
+          <div class="card" style="padding:4px 14px;margin-top:8px">
+            <table><thead><tr><th>Target</th><th>Who to reach</th><th>Why now</th><th></th></tr></thead><tbody>
+              <tr class="click" onclick="go('detail')"><td class="n">PATH Ventures</td><td>VP, Real Estate Dev</td><td>New Homekey award — design team open</td><td><span class="pill ok">ready</span></td></tr>
+              <tr class="click" onclick="go('detail')"><td class="n">Brilliant Corners</td><td>Dir., Housing Dev</td><td>Scattered-site acquisition wave</td><td><span class="pill ok">ready</span></td></tr>
+              <tr class="click" onclick="go('detail')"><td class="n">Weingart Center</td><td>Chief Real Estate Officer</td><td>Tower expansion in predev</td><td><span class="pill amber">confirm</span></td></tr>
+            </tbody></table>
+          </div>
+          <div class="wk"><span class="dot"></span><span class="nm">Proposal Drafter</span><span class="st">running</span></div>
+          <div class="kpis">
+            <div class="kpi"><div class="n">11</div><div class="l">SOQs / proposals drafted</div><div class="d">this quarter</div></div>
+            <div class="kpi"><div class="n">~25m</div><div class="l">Avg to first draft</div><div class="d">from 2–5 days</div></div>
+            <div class="kpi"><div class="n">92</div><div class="l">Library sections reused</div><div class="d">your built work</div></div>
+            <div class="kpi"><div class="n">~45h</div><div class="l">Saved this month</div><div class="d">hunting + rebuilds</div></div>
+          </div>
+          <div class="hint">Tap a target row to see a worked lead · or hit <b>Add targets</b>.</div>
+          <div style="text-align:center"><button class="btn" onclick="go('add')">Add targets →</button></div>
+        </div>
+
+        <!-- LEADS: add -->
+        <div class="view" id="v-add">
+          <button class="back" onclick="go('dash')">← Dashboard</button>
+          <div class="h">Add targets</div><div class="sub">Drop in one, or upload a list. Lead Desk researches every one.</div>
+          <div class="card" style="padding:18px"><div class="slabel">Add one</div>
+            <label>Organization</label><input value="PATH Ventures">
+            <label>Anything you already know (optional)</label><textarea>Just landed a Homekey award. Want the real-estate lead + the way in before they pick a design team.</textarea>
+            <button class="btn" onclick="go('detail')">Research →</button></div>
+          <div class="or">— or —</div>
+          <div class="card" style="padding:18px"><div class="slabel">Upload a list</div>
+            <div class="drop">Drop a CSV or paste a list — supportive-housing developers, funders, agencies<br><span style="font-size:11px">homekey-awardees-2026.csv · 38 orgs</span></div>
+            <button class="btn" onclick="go('dash')">Research all 38 →</button></div>
+        </div>
+
+        <!-- LEADS: detail -->
+        <div class="view" id="v-detail">
+          <button class="back" onclick="go('dash')">← Dashboard</button>
+          <div class="h">PATH Ventures</div><div class="sub">One target, fully worked — org + who decides + your way in. Marked verified / confirm-on-call (amber).</div>
+          <div class="card" style="padding:18px">
+            <div class="layer"><h3>The organization</h3>
+              <div class="kv"><div class="k">Who</div><div>One of CA's largest permanent-supportive-housing developers<span class="tag">verified</span></div></div>
+              <div class="kv"><div class="k">Pipeline</div><div>Multiple Homekey + 4% LIHTC projects in predevelopment<span class="tag">verified</span></div></div>
+              <div class="kv"><div class="k">Why now</div><div>New award announced — assembling the project team, design not yet locked<span class="tag amber">confirm on call</span></div></div>
+            </div>
+            <div class="layer"><h3>Who to reach</h3>
+              <div class="kv"><div class="k">Name</div><div><b>Dana Ruiz</b> — VP, Real Estate Development<span class="tag">owns architect pick</span></div></div>
+              <div class="kv"><div class="k">Email</div><div>d.ruiz@pathventures.org<span class="tag">verified pattern</span></div></div>
+              <div class="kv"><div class="k">Direct</div><div>(213) 555-0148<span class="tag amber">confirm</span></div></div>
+              <div class="kv"><div class="k">LinkedIn</div><div>linkedin.com/in/dana-ruiz-pathventures</div></div>
+              <div class="kv"><div class="k">Cares about</div><div>Speed to close · cost-per-unit · a team that's delivered Homekey</div></div>
+              <div class="kv"><div class="k">Warm path</div><div>Shared Hope the Mission connection<span class="tag amber">confirm</span></div></div>
+            </div>
+            <div class="layer"><h3>Your angle</h3>
+              <div class="angle">You've already delivered exactly this — The Sierra (38 PSH units, Hope the Mission), Hub City Heights (Homekey, Compton). Lead with the built proof: "we've taken Homekey awards to occupancy on your timeline, with the dignity your residents deserve." That's the line only Kadre can say.</div>
+            </div>
+          </div>
+          <div style="text-align:center"><button class="btn" onclick="go('setup')">Draft a proposal for them →</button></div>
+        </div>
+
+        <!-- PROPOSALS: setup -->
+        <div class="view" id="v-setup">
+          <div class="h">New proposal</div><div class="sub">Give it the project. Pick what goes in. It drafts from your own built work.</div>
+          <div class="card" style="padding:18px">
+            <label>Project / client</label><input value="PATH Ventures — 60-unit permanent supportive housing (Homekey)">
+            <label>Sector</label>
+            <select><option>Permanent Supportive Housing</option><option>Interim &amp; Tiny-Home Villages</option><option>Adaptive Reuse / Hotel Conversion</option><option>Affordable Housing</option><option>Community &amp; Civic</option></select>
+            <label>Context / call notes</label><textarea>Adaptive-reuse site, tight pro-forma, needs a team with delivered Homekey + PSH. Emphasize speed to occupancy + dignity.</textarea>
+          </div>
+          <div class="card" style="padding:18px"><div class="slabel">Include — pulled from your built work</div>
+            <div class="check"><span class="box"></span> Firm overview — design for social cause</div>
+            <div class="check"><span class="box"></span> Relevant experience — <span class="tinytag">The Sierra</span> <span class="tinytag">Hub City Heights</span> <span class="tinytag">The Alvarado</span></div>
+            <div class="check"><span class="box"></span> Approach — constraint-driven, trauma-informed</div>
+            <div class="check"><span class="box"></span> Team — Nerin + studio</div>
+            <div class="check"><span class="box off"></span> Fee / pro-forma</div>
+          </div>
+          <div class="card" style="padding:18px;display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap">
+            <div><div class="slabel" style="margin:0 0 3px">Finish in</div><div style="font-size:13px">Your InDesign template <span class="tinytag">brand-matched</span></div></div>
+            <button class="btn" style="margin-top:0" onclick="go('output')">Generate →</button></div>
+        </div>
+
+        <!-- PROPOSALS: output -->
+        <div class="view" id="v-output">
+          <button class="back" onclick="go('setup')">← Setup</button>
+          <div class="h">Multiple-section Proposal outputted</div><div class="sub">Built from your library into your format — ~80%. Organized to your template's sections, ready for your 20–40 minute finish.</div>
+          <div class="pgrid">
+            <div class="page"><div class="pg-in"><div class="phero"></div><div class="ttl">PATH Ventures — SOQ</div><div class="ln s"></div></div><div class="cap">Cover</div></div>
+            <div class="page"><div class="pg-in"><div class="ttl">Design for social cause</div><div class="ln"></div><div class="ln"></div><div class="ln s"></div></div><div class="cap">Firm Overview</div></div>
+            <div class="page"><div class="pg-in"><div class="imgb"></div><div class="ttl" style="font-size:11px">The Sierra</div><div class="ln s"></div></div><div class="cap">Experience</div></div>
+            <div class="page"><div class="pg-in"><div class="imgb"></div><div class="ttl" style="font-size:11px">Hub City Heights</div><div class="ln s"></div></div><div class="cap">Experience</div></div>
+            <div class="page"><div class="pg-in"><div class="ttl">Our approach</div><div class="ln"></div><div class="ln s"></div></div><div class="cap">Approach</div></div>
+            <div class="page"><div class="pg-in"><div class="ttl">Fee + next</div><div class="ln s"></div><div class="imgb" style="margin-top:6px;background:#eef3f0"></div></div><div class="cap">Fee / Next</div></div>
+          </div>
+          <div class="note">Every section drafted from your real projects — The Sierra, Hub City Heights, The Alvarado — in your brand, organized 1:1 to your own InDesign template. You place and polish. Your design, start to finish.</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- OFFER -->
+  <section id="offer">
+    <div class="eyebrow">What you get</div>
+    <h2 class="hh">Two Workers</h2>
+    <div class="lede" style="margin-bottom:18px"><p>Not tools you babysit. Workers that do the busywork and hand it back — built into your own systems, your data stays yours.</p></div>
+
+    <div class="worker">
+      <div class="wt">Worker 1 · Proposal Drafter</div>
+      <div class="wd">Kills the proposal grind. Keeps the design 100% yours.</div>
+      <div class="flow">
+        <div class="step"><div class="sl">Intake</div><div class="sv">"Here's the project — the context, the client, the sector."</div></div>
+        <div class="step"><div class="sl">Processing</div><div class="sv">Drafts to ~80% from your own past work — your language, your projects — with a captioned image shortlist matched to the sector.</div></div>
+        <div class="step"><div class="sl">Handoff</div><div class="sv">A package organized 1:1 to your InDesign template's sections — each section's narrative + its images, in order. Not a competing design tool.</div></div>
+        <div class="step"><div class="sl">You finish</div><div class="sv">Place-and-polish in your template — 20–40 min vs 2–5 days. Every layout call stays yours.</div></div>
+      </div>
+      <div class="outcome"><b>Outcome:</b> the 60–70% that's hunting + rewriting + image-swapping is gone. Your design bar — the part that wins the work — is untouched.</div>
+      <div class="note">Gamma / AI-layout stays an optional side-lane for quick, low-stakes responses only — never the finish surface for a real SOQ.</div>
+    </div>
+
+    <div class="worker">
+      <div class="wt">Worker 2 · Lead Desk</div>
+      <div class="wd">Your list, cleaned and kept live. You own the BD — this handles the busywork behind it.</div>
+      <div class="flow">
+        <div class="step"><div class="sl">Intake</div><div class="sv">Drop in the orgs you're chasing, or upload a relevant list.</div></div>
+        <div class="step"><div class="sl">Processing</div><div class="sv">Researches the org AND the decision-maker — the verified contact and the angle — kept current.</div></div>
+        <div class="step"><div class="sl">Sign-off</div><div class="sv">You and Jada decide who's worth it. You keep lead-selection.</div></div>
+        <div class="step"><div class="sl">Into your stack</div><div class="sv">Lands clean in Factor, trackable, easy to split with Jada.</div></div>
+      </div>
+      <div class="outcome"><b>Outcome:</b> the list stays clean, current, and researched — so your and Jada's time goes to the outreach, not the busywork.</div>
+    </div>
+
+    <div class="notthis" style="margin-top:14px">
+      <b>What this is not.</b> Not hourly. Not an MSP. We don't do your business development — you own the list, the relationships, and the outreach. We build and run the tools behind it, in your systems, and you own the data.
+    </div>
+  </section>
+
+  <!-- PROOF -->
+  <section id="proof">
+    <div class="eyebrow">Proof</div>
+    <h2 class="hh">Who we've done this for</h2>
+    <div class="lede" style="margin-bottom:18px"><p>We build these systems into real firms' own stacks and run them. <span style="color:#b5b5b5">[Josh — replace the quotes below with real client testimonials + swap in client names/logos. Nothing here is invented; it's a placeholder for your real proof.]</span></p></div>
+    <div class="proofgrid">
+      <div class="tcard">
+        <div class="tqz">"[Real client quote — the outcome they got, in their words.]"</div>
+        <div class="tattr">[Name, Title] · [Client firm]</div>
+      </div>
+      <div class="tcard">
+        <div class="tqz">"[Real client quote — what changed for them week to week.]"</div>
+        <div class="tattr">[Name, Title] · [Client firm]</div>
+      </div>
+    </div>
+    <div class="results">
+      <div class="rstat"><div class="rn">[X]</div><div class="rl">[Result metric — e.g. hrs/mo saved]</div></div>
+      <div class="rstat"><div class="rn">[X]</div><div class="rl">[Result metric — e.g. proposals/quarter]</div></div>
+      <div class="rstat"><div class="rn">[X]</div><div class="rl">[Result metric — e.g. systems live]</div></div>
+    </div>
+    <div class="note">Also proof: the Kadre OS demo above runs on your own real projects — The Sierra, Hub City Heights, The Alvarado. That's the research depth you'd get, on day one.</div>
+  </section>
+
+  <!-- PRICING -->
+  <section id="pricing">
+    <div class="eyebrow">Investment</div>
+    <h2 class="hh">Two numbers</h2>
+    <div class="price">
+      <div class="pcard">
+        <div class="pl">Setup · one-time</div>
+        <div class="pn">Tailored</div>
+        <div class="pd">One-time build: both Workers into your systems, Factor connection confirmed, Proposal Drafter live on a real proposal so you see it work first. Exact number we finalize on our call.</div>
+      </div>
+      <div class="pcard">
+        <div class="pl">Monthly · run + maintain</div>
+        <div class="pn">Two-part<small> · setup + monthly</small></div>
+        <div class="pd">We run and maintain the Workers, keep research current, tune the drafts, and add the next Worker as your OS grows. Monthly figure finalized on our call.</div>
+      </div>
+    </div>
+    <div class="roi">
+      Between the list-keeping and the proposal production, you're spending a big slice of your and Jada's week on work a system handles — before counting the projects you'd win by getting in front of the right people faster. <b>Win one project a year and the whole thing is a rounding error.</b>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq">
+    <div class="eyebrow">FAQ</div>
+    <h2 class="hh">The quick answers</h2>
+    <div class="q"><div class="qq">Are you taking over my business development?</div><div class="qa">No. You own the list, the people, and the outreach. Lead Desk just does the research and keeps the list clean behind you.</div></div>
+    <div class="q"><div class="qq">Does this replace my proposal design?</div><div class="qa">No. It hands you an ~80% content package organized to your own InDesign template — you place and finish. Your design bar is what wins the work; we don't touch it.</div></div>
+    <div class="q"><div class="qq">Where does it live?</div><div class="qa">In your own systems — your stack, your data. It lands in Factor, import-ready. You own everything.</div></div>
+    <div class="q"><div class="qq">How fast is it running?</div><div class="qa">Setup gets the Proposal Drafter live on a real proposal first, so you see it produce before the full build. Then it runs.</div></div>
+  </section>
+
+  <!-- ACCEPT -->
+  <section id="accept">
+    <div class="accept">
+      <div class="eyebrow">Ready when you are</div>
+      <h2 class="hh">Start Kadre OS</h2>
+      <div class="lede" style="margin:0 auto"><p>Accept below to open the agreement and get started. Questions first? Just reply — happy to walk through any of it.</p></div>
+      <a class="bigbtn" href="mailto:josh@clearworks.ai?subject=Kadre%20OS%20—%20let%27s%20start" target="_blank" rel="noopener">Accept &amp; get started →</a>
+      <div class="fine">Secure e-sign + payment handled through our standard agreement.</div>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <div class="cw">CLEARWORKS</div>
+  <div style="margin-top:8px">Prepared for Kadre Architects · built into your systems, run by us · you own your data.</div>
+</footer>
+
+<!-- EDIT TOOLBAR (Clearworks internal — not shown to client) -->
+<div id="edbar" style="position:fixed;right:16px;bottom:16px;z-index:200;display:flex;gap:8px;font:600 11px/1 Montserrat,sans-serif;letter-spacing:.12em;text-transform:uppercase">
+  <button id="edToggle" onclick="toggleEdit()" style="background:#1a1a1a;color:#fff;border:0;padding:12px 16px;cursor:pointer;font:inherit;letter-spacing:.12em">✎ Edit</button>
+  <button onclick="downloadEdited()" style="background:#fff;color:#1a1a1a;border:1px solid #1a1a1a;padding:12px 16px;cursor:pointer;font:inherit;letter-spacing:.12em">Download</button>
+  <button onclick="resetEdits()" title="Discard your edits" style="background:#fff;color:#8a8a8a;border:1px solid #e6e6e6;padding:12px 12px;cursor:pointer;font:inherit;letter-spacing:.12em">Reset</button>
+</div>
+
+<script>
+var VIEWS=['dash','add','detail','setup','output'];
+function go(id){
+  VIEWS.forEach(function(v){var el=document.getElementById('v-'+v);if(el)el.classList.toggle('on',v===id);});
+  var prop=(id==='setup'||id==='output');
+  document.getElementById('tabProp').classList.toggle('on',prop);
+  document.getElementById('tabLeads').classList.toggle('on',!prop);
+  document.querySelector('.stage').scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+/* ---------- inline edit mode ---------- */
+var EDSEL='.eyebrow,.hh,.lede p,.hero .sig,.worker .wt,.worker .wd,.step .sl,.step .sv,.outcome,.notthis,.tqz,.tattr,.rstat .rn,.rstat .rl,.pcard .pl,.pcard .pn,.pcard .pd,.roi,.q .qq,.q .qa,.bigbtn,.accept .fine,footer div';
+var LSKEY='kadre-room-edits-v1';
+function edEls(){return document.querySelectorAll(EDSEL);}
+function loadEdits(){
+  var saved;try{saved=JSON.parse(localStorage.getItem(LSKEY)||'{}')}catch(e){saved={}}
+  edEls().forEach(function(el,i){if(saved[i]!=null)el.innerHTML=saved[i];});
+}
+function saveEdits(){
+  var o={};edEls().forEach(function(el,i){o[i]=el.innerHTML;});
+  try{localStorage.setItem(LSKEY,JSON.stringify(o))}catch(e){}
+}
+var editing=false;
+function toggleEdit(){
+  editing=!editing;
+  var btn=document.getElementById('edToggle');
+  edEls().forEach(function(el){
+    el.contentEditable=editing;
+    el.style.outline=editing?'1px dashed #b5b5b5':'';
+    el.style.outlineOffset=editing?'3px':'';
+  });
+  btn.textContent=editing?'✓ Done':'✎ Edit';
+  btn.style.background=editing?'#2f7d5d':'#1a1a1a';
+  if(editing){document.addEventListener('input',saveEdits,true);}
+  else{document.removeEventListener('input',saveEdits,true);saveEdits();}
+}
+function resetEdits(){
+  if(!confirm('Discard all your text edits and restore the original?'))return;
+  localStorage.removeItem(LSKEY);location.reload();
+}
+function downloadEdited(){
+  if(editing)toggleEdit();
+  var clone=document.documentElement.cloneNode(true);
+  var bar=clone.querySelector('#edbar');if(bar)bar.remove();
+  clone.querySelectorAll('[contenteditable]').forEach(function(el){el.removeAttribute('contenteditable');el.style.outline='';el.style.outlineOffset='';});
+  clone.querySelectorAll('script').forEach(function(s){if(/loadEdits|toggleEdit/.test(s.textContent))return;});
+  var html='<!doctype html>\n'+clone.outerHTML;
+  var blob=new Blob([html],{type:'text/html'});
+  var a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='kadre-deal-room.html';a.click();
+}
+loadEdits();
+/* me-side vs client-side: toolbar only with ?edit=1 (client link = read-only, no edit UI) */
+if(!/[?&]edit=1/.test(location.search)){var _b=document.getElementById('edbar');if(_b)_b.style.display='none';}
+</script>
+</body>
+</html>
