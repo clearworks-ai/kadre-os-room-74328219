@@ -132,6 +132,18 @@ textarea{min-height:58px}
 .phase .pcheck .ck{color:var(--accent);flex:none;font-weight:700;margin-top:1px}
 .phase .phigh{background:var(--soft);border-left:2px solid var(--accent);padding:12px 14px;font-size:12.5px;color:var(--ink2);margin-top:14px;font-weight:600;line-height:1.55}
 
+/* ---------- pain, in his words ---------- */
+.painhead{font-weight:300;font-size:26px;line-height:1.3;letter-spacing:-.01em;margin:0 0 4px}
+.painsub{color:var(--accent);font-weight:600;font-size:15px;margin-bottom:22px}
+.paingrid{display:grid;grid-template-columns:1fr;gap:0;border-top:2px solid var(--ink)}
+@media(min-width:640px){.paingrid{grid-template-columns:repeat(4,1fr)}}
+.painitem{padding:18px 0}
+@media(min-width:640px){.painitem{border-right:1px solid var(--line);padding:18px 16px}.painitem:last-child{border-right:0}}
+.painitem .pn{font-size:10px;letter-spacing:.1em;color:var(--accent);font-weight:700;margin-bottom:6px}
+.painitem .pt{font-weight:600;font-size:14px;margin-bottom:5px}
+.painitem .pd2{font-size:12px;color:var(--muted);line-height:1.5}
+.painfoot{color:var(--muted);font-size:11.5px;margin-top:18px;border-top:1px solid var(--line);padding-top:14px}
+
 /* ---------- pricing ---------- */
 .price{display:grid;grid-template-columns:1fr;gap:14px}
 @media(min-width:640px){.price{grid-template-columns:1fr 1fr}}
@@ -176,6 +188,7 @@ footer .cw{font-size:12px;color:var(--ink);letter-spacing:.24em}
   <div class="cw">CLEARWORKS</div>
   <div class="roomnav">
     <a href="#demo">The system</a>
+    <a href="#pain">The problem</a>
     <a href="#offer">What you get</a>
     <a href="#roadmap">Roadmap</a>
     <a href="#proof">Proof</a>
@@ -201,6 +214,35 @@ footer .cw{font-size:12px;color:var(--ink);letter-spacing:.24em}
       </div>
       <div class="sig">— Josh, Clearworks</div>
     </div>
+  </section>
+
+  <!-- PAIN, IN HIS WORDS -->
+  <section id="pain">
+    <h2 class="painhead">This isn't a guess at your problem.</h2>
+    <div class="painsub">It's what you told us, from our conversations.</div>
+    <div class="paingrid">
+      <div class="painitem">
+        <div class="pn">01</div>
+        <div class="pt">Sector by sector, by hand</div>
+        <div class="pd2">Public vs. private, higher-ed, tech-company facilities — you already know how you want it organized. Right now that's you, doing it "the old-fashioned way," one contact at a time.</div>
+      </div>
+      <div class="painitem">
+        <div class="pn">02</div>
+        <div class="pt">Every inbox already flooded</div>
+        <div class="pd2">Instantly, Melodoso-style AI outreach is everywhere now — generic, everyone can smell it. Real signal has to work harder to land, and you don't want to add to the noise.</div>
+      </div>
+      <div class="painitem">
+        <div class="pn">03</div>
+        <div class="pt">Seasonal grind, every proposal from scratch</div>
+        <div class="pd2">Spring through late fall, awards and proposals come in waves — each one rebuilt by hand, on top of running the actual practice.</div>
+      </div>
+      <div class="painitem">
+        <div class="pn">04</div>
+        <div class="pt">No system to build on</div>
+        <div class="pd2">Past a name and a spreadsheet, there's no structure underneath it — nothing that remembers what you already know and hands it back when you need it.</div>
+      </div>
+    </div>
+    <div class="painfoot">This shows up everywhere — the list, the outreach, the proposals, the tracking. Same root cause, different symptom.</div>
   </section>
 
   <!-- DEMO -->
@@ -500,7 +542,7 @@ function go(id){
 }
 
 /* ---------- inline edit mode ---------- */
-var EDSEL='.eyebrow,.hh,.lede p,.hero .sig,.worker .wt,.worker .wd,.step .sl,.step .sv,.outcome,.notthis,.phase .pnum,.phase .ptitle,.phase .pdesc,.phase .pcheck,.phase .phigh,.tqz,.tattr,.rstat .rn,.rstat .rl,.pcard .pl,.pcard .pn,.pcard .pd,.roi,.q .qq,.q .qa,.bigbtn,.accept .fine,footer div';
+var EDSEL='.eyebrow,.hh,.lede p,.hero .sig,.painhead,.painsub,.painitem .pt,.painitem .pd2,.painfoot,.worker .wt,.worker .wd,.step .sl,.step .sv,.outcome,.notthis,.phase .pnum,.phase .ptitle,.phase .pdesc,.phase .pcheck,.phase .phigh,.tqz,.tattr,.rstat .rn,.rstat .rl,.pcard .pl,.pcard .pn,.pcard .pd,.roi,.q .qq,.q .qa,.bigbtn,.accept .fine,footer div';
 var LSKEY='kadre-room-edits-v1';
 function edEls(){return document.querySelectorAll(EDSEL);}
 function loadEdits(){
