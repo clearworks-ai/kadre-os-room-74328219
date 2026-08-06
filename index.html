@@ -122,6 +122,16 @@ textarea{min-height:58px}
 .outcome b{font-weight:600}
 .notthis{background:#fff;border:1px solid var(--line);border-left:3px solid var(--ink);padding:18px 22px;font-size:13px;color:var(--ink2)}
 
+/* ---------- roadmap phases ---------- */
+.phase{background:#fff;border:1px solid var(--line);padding:26px 28px;margin:14px 0}
+.phase .pnum{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);font-weight:700;margin-bottom:6px}
+.phase .ptitle{font-weight:300;font-size:22px;letter-spacing:-.01em;margin:0 0 6px}
+.phase .pdesc{color:var(--muted);font-size:13px;margin-bottom:14px}
+.phase .pcheck{display:flex;align-items:flex-start;gap:10px;padding:7px 0;font-size:13px;border-top:1px solid #f0f0f0}
+.phase .pcheck:first-of-type{border-top:0}
+.phase .pcheck .ck{color:var(--accent);flex:none;font-weight:700;margin-top:1px}
+.phase .phigh{background:var(--soft);border-left:2px solid var(--accent);padding:12px 14px;font-size:12.5px;color:var(--ink2);margin-top:14px;font-weight:600;line-height:1.55}
+
 /* ---------- pricing ---------- */
 .price{display:grid;grid-template-columns:1fr;gap:14px}
 @media(min-width:640px){.price{grid-template-columns:1fr 1fr}}
@@ -167,6 +177,7 @@ footer .cw{font-size:12px;color:var(--ink);letter-spacing:.24em}
   <div class="roomnav">
     <a href="#demo">The system</a>
     <a href="#offer">What you get</a>
+    <a href="#roadmap">Roadmap</a>
     <a href="#proof">Proof</a>
     <a href="#pricing">Investment</a>
     <a href="#faq">FAQ</a>
@@ -196,7 +207,7 @@ footer .cw{font-size:12px;color:var(--ink);letter-spacing:.24em}
   <section id="demo">
     <div class="eyebrow">The system — click through it</div>
     <h2 class="hh">Kadre OS, working</h2>
-    <div class="lede" style="margin-bottom:18px"><p>Sample data, your brand. Three tabs: <b>Dashboard</b>, <b>Leads</b> (Lead Management), and <b>Proposals</b> (Proposal Automation). Tap the tabs and the buttons — it's live.</p></div>
+    <div class="lede" style="margin-bottom:18px"><p>Sample data, your brand. Three tabs: <b>Dashboard</b>, <b>Leads</b> (Lead Desk), and <b>Proposals</b> (Proposal Drafter). Tap the tabs and the buttons — it's live.</p></div>
 
     <div class="demowrap">
       <div class="demobar">
@@ -213,7 +224,7 @@ footer .cw{font-size:12px;color:var(--ink);letter-spacing:.24em}
         <!-- LEADS: dashboard -->
         <div class="view on" id="v-dash">
           <div class="h">Dashboard</div><div class="sub">Your growth engine — both Workers, live.</div>
-          <div class="wk"><span class="dot"></span><span class="nm">Lead Management</span><span class="st">running</span></div>
+          <div class="wk"><span class="dot"></span><span class="nm">Lead Desk</span><span class="st">running</span></div>
           <div class="kpis">
             <div class="kpi"><div class="n">86</div><div class="l">Funders + agencies mapped</div><div class="d">+14 this month</div></div>
             <div class="kpi"><div class="n">29</div><div class="l">Warm + ready</div><div class="d">verified contact</div></div>
@@ -227,7 +238,7 @@ footer .cw{font-size:12px;color:var(--ink);letter-spacing:.24em}
               <tr class="click" onclick="go('detail')"><td class="n">Weingart Center</td><td>Chief Real Estate Officer</td><td>Tower expansion in predev</td><td><span class="pill amber">confirm</span></td></tr>
             </tbody></table>
           </div>
-          <div class="wk"><span class="dot"></span><span class="nm">Proposal Automation</span><span class="st">running</span></div>
+          <div class="wk"><span class="dot"></span><span class="nm">Proposal Drafter</span><span class="st">running</span></div>
           <div class="kpis">
             <div class="kpi"><div class="n">11</div><div class="l">SOQs / proposals drafted</div><div class="d">this quarter</div></div>
             <div class="kpi"><div class="n">~25m</div><div class="l">Avg to first draft</div><div class="d">from 2–5 days</div></div>
@@ -241,7 +252,7 @@ footer .cw{font-size:12px;color:var(--ink);letter-spacing:.24em}
         <!-- LEADS: add -->
         <div class="view" id="v-add">
           <button class="back" onclick="go('dash')">← Dashboard</button>
-          <div class="h">Add targets</div><div class="sub">Drop in one, or upload a list. Lead Management researches every one.</div>
+          <div class="h">Add targets</div><div class="sub">Drop in one, or upload a list. Lead Desk researches every one.</div>
           <div class="card" style="padding:18px"><div class="slabel">Add one</div>
             <label>Organization</label><input value="PATH Ventures">
             <label>Anything you already know (optional)</label><textarea>Just landed a Homekey award. Want the real-estate lead + the way in before they pick a design team.</textarea>
@@ -324,7 +335,7 @@ footer .cw{font-size:12px;color:var(--ink);letter-spacing:.24em}
     <div class="lede" style="margin-bottom:18px"><p>Not tools you babysit. Workers that do the busywork and hand it back — built into your own systems, your data stays yours.</p></div>
 
     <div class="worker">
-      <div class="wt">Worker 1 · Proposal Automation</div>
+      <div class="wt">Worker 1 · Proposal Drafter</div>
       <div class="wd">Kills the proposal grind. Keeps the design 100% yours.</div>
       <div class="flow">
         <div class="step"><div class="sl">Intake</div><div class="sv">"Here's the project — the context, the client, the sector."</div></div>
@@ -337,7 +348,7 @@ footer .cw{font-size:12px;color:var(--ink);letter-spacing:.24em}
     </div>
 
     <div class="worker">
-      <div class="wt">Worker 2 · Lead Management</div>
+      <div class="wt">Worker 2 · Lead Desk</div>
       <div class="wd">Your list, cleaned and kept live. You own the BD — this handles the busywork behind it.</div>
       <div class="flow">
         <div class="step"><div class="sl">Intake</div><div class="sv">Drop in the orgs you're chasing, or upload a relevant list.</div></div>
@@ -350,6 +361,43 @@ footer .cw{font-size:12px;color:var(--ink);letter-spacing:.24em}
 
     <div class="notthis" style="margin-top:14px">
       <b>What this is not.</b> Not hourly. Not an MSP. We don't do your business development — you own the list, the relationships, and the outreach. We build and run the tools behind it, in your systems, and you own the data.
+    </div>
+  </section>
+
+  <!-- ROADMAP -->
+  <section id="roadmap">
+    <div class="eyebrow">Where this goes</div>
+    <h2 class="hh">The path, not just the pitch</h2>
+    <div class="lede" style="margin-bottom:18px"><p>This starts small on purpose. Here's how it grows.</p></div>
+
+    <div class="phase">
+      <div class="pnum">01 · Discovery</div>
+      <div class="ptitle">What's actually eating your time</div>
+      <div class="pdesc">The small audit — before we build anything.</div>
+      <div class="pcheck"><span class="ck">✓</span> Walk your real proposal + BD workflow, start to finish</div>
+      <div class="pcheck"><span class="ck">✓</span> Scope exactly what Proposal Automation + Lead Management need to do for you</div>
+      <div class="pcheck"><span class="ck">✓</span> Confirm the Factor connection and your template's real sections</div>
+      <div class="phigh">The lowest-risk way to find out this is real before committing to the build.</div>
+    </div>
+
+    <div class="phase">
+      <div class="pnum">02 · Build</div>
+      <div class="ptitle">The two Workers, live in your systems</div>
+      <div class="pdesc">What you're buying today.</div>
+      <div class="pcheck"><span class="ck">✓</span> Proposal Automation running on a real proposal, so you see it work first</div>
+      <div class="pcheck"><span class="ck">✓</span> Lead Management researching + landing clean in Factor</div>
+      <div class="pcheck"><span class="ck">✓</span> We run and maintain both, tuned as you use them</div>
+      <div class="phigh">Two working systems you own — not a report.</div>
+    </div>
+
+    <div class="phase">
+      <div class="pnum">03 · Grow</div>
+      <div class="ptitle">As more comes online</div>
+      <div class="pdesc">Where the relationship goes next — not promised, just the shape.</div>
+      <div class="pcheck"><span class="ck">✓</span> A bigger audit maps the rest of your ops as it makes sense</div>
+      <div class="pcheck"><span class="ck">✓</span> New Workers added one at a time, each scoped like this one</div>
+      <div class="pcheck"><span class="ck">✓</span> Designed so each piece stands alone — never locked into a bigger commitment than you want</div>
+      <div class="phigh">Nothing here is a hard sell for later. It's just the honest shape of how firms like yours actually grow with us.</div>
     </div>
   </section>
 
@@ -411,10 +459,10 @@ footer .cw{font-size:12px;color:var(--ink);letter-spacing:.24em}
   <section id="faq">
     <div class="eyebrow">FAQ</div>
     <h2 class="hh">The quick answers</h2>
-    <div class="q"><div class="qq">Are you taking over my business development?</div><div class="qa">No. You own the list, the people, and the outreach. Lead Management just does the research and keeps the list clean behind you.</div></div>
+    <div class="q"><div class="qq">Are you taking over my business development?</div><div class="qa">No. You own the list, the people, and the outreach. Lead Desk just does the research and keeps the list clean behind you.</div></div>
     <div class="q"><div class="qq">Does this replace my proposal design?</div><div class="qa">No. It hands you an ~80% content package organized to your own InDesign template — you place and finish. Your design bar is what wins the work; we don't touch it.</div></div>
     <div class="q"><div class="qq">Where does it live?</div><div class="qa">In your own systems — your stack, your data. It lands in Factor, import-ready. You own everything.</div></div>
-    <div class="q"><div class="qq">How fast is it running?</div><div class="qa">Setup gets the Proposal Automation live on a real proposal first, so you see it produce before the full build. Then it runs.</div></div>
+    <div class="q"><div class="qq">How fast is it running?</div><div class="qa">Setup gets the Proposal Drafter live on a real proposal first, so you see it produce before the full build. Then it runs.</div></div>
   </section>
 
   <!-- ACCEPT -->
@@ -452,7 +500,7 @@ function go(id){
 }
 
 /* ---------- inline edit mode ---------- */
-var EDSEL='.eyebrow,.hh,.lede p,.hero .sig,.worker .wt,.worker .wd,.step .sl,.step .sv,.outcome,.notthis,.tqz,.tattr,.rstat .rn,.rstat .rl,.pcard .pl,.pcard .pn,.pcard .pd,.roi,.q .qq,.q .qa,.bigbtn,.accept .fine,footer div';
+var EDSEL='.eyebrow,.hh,.lede p,.hero .sig,.worker .wt,.worker .wd,.step .sl,.step .sv,.outcome,.notthis,.phase .pnum,.phase .ptitle,.phase .pdesc,.phase .pcheck,.phase .phigh,.tqz,.tattr,.rstat .rn,.rstat .rl,.pcard .pl,.pcard .pn,.pcard .pd,.roi,.q .qq,.q .qa,.bigbtn,.accept .fine,footer div';
 var LSKEY='kadre-room-edits-v1';
 function edEls(){return document.querySelectorAll(EDSEL);}
 function loadEdits(){
