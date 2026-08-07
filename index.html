@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Kadre OS · A proposal from Clearworks</title>
+<title>Kadre OS · A proposal from Clearworks · Rev 5</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
 :root{--ink:#1a1a1a;--muted:#8a8a8a;--line:#e6e6e6;--bg:#fff;--soft:#f5f4f2;--ink2:#3a3a3a;--accent:#cc3366}
@@ -210,7 +210,7 @@ footer .cw{font-size:12px;color:var(--ink);letter-spacing:.24em}
       <div class="lede">
         <p>Nerin — thanks for having me at the studio. Seeing how you build made the idea sharper.</p>
         <p>The business has shifted: more work to bring in, with as little of your own time as possible. The bottleneck isn't the BD — you know the people and who to chase. It's the busywork stacked behind it: cleaning the list, keeping it current, and rebuilding every proposal by hand.</p>
-        <p>So here's the shape. Two Workers that do that busywork and hand it back — you stay on the parts only you do. Click through the system below, then the offer's underneath it.</p>
+        <p>So here's the shape. The Kadre Pursuit System is the first part of a larger Kadre OS. This first build gives you two systems that do that busywork and hand it back, while you stay on the parts only you do. Click through the system below, then the offer's underneath it.</p>
       </div>
       <div class="sig">— Josh, Clearworks</div>
     </div>
@@ -218,32 +218,18 @@ footer .cw{font-size:12px;color:var(--ink);letter-spacing:.24em}
 
   <!-- PAIN, IN HIS WORDS -->
   <section id="pain">
-    <h2 class="painhead">This isn't a guess at your problem.</h2>
-    <div class="painsub">It's what you told us, from our conversations.</div>
-    <div class="paingrid">
-      <div class="painitem">
-        <div class="pn">01</div>
-        <div class="pt">Sector by sector, by hand</div>
-        <div class="pd2">Public vs. private, higher-ed, tech-company facilities — you already know how you want it organized. Right now that's you, doing it "the old-fashioned way," one contact at a time.</div>
-      </div>
-      <div class="painitem">
-        <div class="pn">02</div>
-        <div class="pt">Every inbox already flooded</div>
-        <div class="pd2">Instantly, Melodoso-style AI outreach is everywhere now — generic, everyone can smell it. Real signal has to work harder to land, and you don't want to add to the noise.</div>
-      </div>
-      <div class="painitem">
-        <div class="pn">03</div>
-        <div class="pt">Seasonal grind, every proposal from scratch</div>
-        <div class="pd2">Spring through late fall, awards and proposals come in waves — each one rebuilt by hand, on top of running the actual practice.</div>
-      </div>
-      <div class="painitem">
-        <div class="pn">04</div>
-        <div class="pt">No system to build on</div>
-        <div class="pd2">Past a name and a spreadsheet, there's no structure underneath it — nothing that remembers what you already know and hands it back when you need it.</div>
-      </div>
-    </div>
-    <div class="painfoot">This shows up everywhere — the list, the outreach, the proposals, the tracking. Same root cause, different symptom.</div>
-  </section>
+  <div class="eyebrow">The work behind the work</div>
+  <h2 class="hh">You already know what good work looks like. The hard part is everything around it.</h2>
+  <div class="lede" style="margin-bottom:18px"><p>It is finding the right opportunity, figuring out who matters inside the organization, finding the right past work, rewriting the same sections again, and getting everything into the format you already use.</p></div>
+  <div class="paingrid">
+    <div class="painitem"><div class="pn">01</div><div class="pt">The right target takes real work to understand</div><div class="pd2">You still decide who Kadre should pursue. The repeated work is turning that target into a useful record: the organization, the person who matters, the contact, the timing, and the reason to reach out.</div></div>
+    <div class="painitem"><div class="pn">02</div><div class="pt">Every serious proposal starts with the same hunt</div><div class="pd2">Past project sheets, bios, images, and sections are spread across the places they have accumulated. The proposal itself is only the visible part of the work.</div></div>
+    <div class="painitem"><div class="pn">03</div><div class="pt">The same proposal work returns with every opportunity</div><div class="pd2">Nerin already gets AI proposals a long way there. The remaining work is the organizing, rewriting, image matching, and final assembly that still takes over the week.</div></div>
+    <div class="painitem"><div class="pn">04</div><div class="pt">The system should get better without getting bigger by default</div><div class="pd2">The first two Workers give Kadre a place to start. The next workflow gets built only when the work shows that it is worth building.</div></div>
+  </div>
+  <div class="painfoot">Kadre OS gives that repeated work somewhere to run, while the judgment and relationships stay with Kadre.</div>
+</section>
+
 
   <!-- DEMO -->
   <section id="demo">
@@ -259,13 +245,13 @@ footer .cw{font-size:12px;color:var(--ink);letter-spacing:.24em}
           <button class="tab" id="tabLeads" onclick="go('add')">Leads</button>
           <button class="tab" id="tabProp" onclick="go('setup')">Proposals</button>
         </div>
-        <div class="who">Nerin K.</div>
+        <div class="who">Nerin</div>
       </div>
       <div class="stage">
 
         <!-- LEADS: dashboard -->
         <div class="view on" id="v-dash">
-          <div class="h">Dashboard</div><div class="sub">Your growth engine — both Workers, live.</div>
+          <div class="h">Dashboard</div><div class="sub">The two Workers, built around Kadre’s work.</div>
           <div class="wk"><span class="dot"></span><span class="nm">Lead Desk</span><span class="st">running</span></div>
           <div class="kpis">
             <div class="kpi"><div class="n">86</div><div class="l">Funders + agencies mapped</div><div class="d">+14 this month</div></div>
@@ -294,7 +280,7 @@ footer .cw{font-size:12px;color:var(--ink);letter-spacing:.24em}
         <!-- LEADS: add -->
         <div class="view" id="v-add">
           <button class="back" onclick="go('dash')">← Dashboard</button>
-          <div class="h">Add targets</div><div class="sub">Drop in one, or upload a list. Lead Desk researches every one.</div>
+          <div class="h">Add targets</div><div class="sub">Drop in one, or upload a list. Lead Desk applies Kadre’s agreed enrichment fields.</div>
           <div class="card" style="padding:18px"><div class="slabel">Add one</div>
             <label>Organization</label><input value="PATH Ventures">
             <label>Anything you already know (optional)</label><textarea>Just landed a Homekey award. Want the real-estate lead + the way in before they pick a design team.</textarea>
@@ -302,13 +288,13 @@ footer .cw{font-size:12px;color:var(--ink);letter-spacing:.24em}
           <div class="or">— or —</div>
           <div class="card" style="padding:18px"><div class="slabel">Upload a list</div>
             <div class="drop">Drop a CSV or paste a list — supportive-housing developers, funders, agencies<br><span style="font-size:11px">homekey-awardees-2026.csv · 38 orgs</span></div>
-            <button class="btn" onclick="go('dash')">Research all 38 →</button></div>
+            <button class="btn" onclick="go('dash')">Run the agreed enrichment →</button></div>
         </div>
 
         <!-- LEADS: detail -->
         <div class="view" id="v-detail">
           <button class="back" onclick="go('dash')">← Dashboard</button>
-          <div class="h">PATH Ventures</div><div class="sub">One target, fully worked — org + who decides + your way in. Marked verified / confirm-on-call (amber).</div>
+          <div class="h">PATH Ventures</div><div class="sub">One target, worked through Kadre’s agreed fields. The final system uses the source and confidence rules we define together.</div>
           <div class="card" style="padding:18px">
             <div class="layer"><h3>The organization</h3>
               <div class="kv"><div class="k">Who</div><div>One of CA's largest permanent-supportive-housing developers<span class="tag">verified</span></div></div>
@@ -372,151 +358,141 @@ footer .cw{font-size:12px;color:var(--ink);letter-spacing:.24em}
 
   <!-- OFFER -->
   <section id="offer">
-    <div class="eyebrow">What you get</div>
-    <h2 class="hh">Two Workers</h2>
-    <div class="lede" style="margin-bottom:18px"><p>Not tools you babysit. Workers that do the busywork and hand it back — built into your own systems, your data stays yours.</p></div>
+  <div class="eyebrow">The first build</div>
+  <h2 class="hh">The first part of Kadre OS, built around the work that matters first.</h2>
+  <div class="lede" style="margin-bottom:18px"><p>This first build gives Kadre two useful systems without pretending we need to redesign every part of the firm at once. It is a place to start, and a real system to build on.</p></div>
 
-    <div class="worker">
-      <div class="wt">Worker 1 · Proposal Drafter</div>
-      <div class="wd">Kills the proposal grind. Keeps the design 100% yours.</div>
-      <div class="flow">
-        <div class="step"><div class="sl">Intake</div><div class="sv">"Here's the project — the context, the client, the sector."</div></div>
-        <div class="step"><div class="sl">Processing</div><div class="sv">Drafts to ~80% from your own past work — your language, your projects — with a captioned image shortlist matched to the sector.</div></div>
-        <div class="step"><div class="sl">Handoff</div><div class="sv">A package organized 1:1 to your InDesign template's sections — each section's narrative + its images, in order. Not a competing design tool.</div></div>
-        <div class="step"><div class="sl">You finish</div><div class="sv">Place-and-polish in your template — 20–40 min vs 2–5 days. Every layout call stays yours.</div></div>
-      </div>
-      <div class="outcome"><b>Outcome:</b> the 60–70% that's hunting + rewriting + image-swapping is gone. Your design bar — the part that wins the work — is untouched.</div>
-      <div class="note">Gamma / AI-layout stays an optional side-lane for quick, low-stakes responses only — never the finish surface for a real SOQ.</div>
+  <div class="worker">
+    <div class="wt">Worker 1 · Lead Desk</div>
+    <div class="wd">A small custom enrichment machine for Kadre’s actual questions.</div>
+    <div class="flow">
+      <div class="step"><div class="sl">Input</div><div class="sv">You choose the organizations and the target types worth pursuing.</div></div>
+      <div class="step"><div class="sl">Build</div><div class="sv">We define the five to ten fields and checks that matter to Kadre, then build the workflow around them.</div></div>
+      <div class="step"><div class="sl">Output</div><div class="sv">The system returns the organization context, the person who matters, the verified contact, the reason to reach out, the source, and the confidence of the record.</div></div>
+      <div class="step"><div class="sl">Into your stack</div><div class="sv">If Factor’s private API exposes what we need, we sync there. If not, we use a dashboard or import/export path.</div></div>
     </div>
+    <div class="outcome"><b>Outcome:</b> Kadre owns the targeting and the relationships. The repeated work of turning a target into a useful record has somewhere to run.</div>
+  </div>
 
-    <div class="worker">
-      <div class="wt">Worker 2 · Lead Desk</div>
-      <div class="wd">Your list, cleaned and kept live. You own the BD — this handles the busywork behind it.</div>
-      <div class="flow">
-        <div class="step"><div class="sl">Intake</div><div class="sv">Drop in the orgs you're chasing, or upload a relevant list.</div></div>
-        <div class="step"><div class="sl">Processing</div><div class="sv">Researches the org AND the decision-maker — the verified contact and the angle — kept current.</div></div>
-        <div class="step"><div class="sl">Sign-off</div><div class="sv">You and Jada decide who's worth it. You keep lead-selection.</div></div>
-        <div class="step"><div class="sl">Into your stack</div><div class="sv">Lands clean in Factor, trackable, easy to split with Jada.</div></div>
-      </div>
-      <div class="outcome"><b>Outcome:</b> the list stays clean, current, and researched — so your and Jada's time goes to the outreach, not the busywork.</div>
+  <div class="worker">
+    <div class="wt">Worker 2 · Proposal Drafter</div>
+    <div class="wd">A proposal package built from Kadre’s own work.</div>
+    <div class="flow">
+      <div class="step"><div class="sl">Input</div><div class="sv">A real opportunity, the context around it, Kadre’s template, and the past work that should inform the response.</div></div>
+      <div class="step"><div class="sl">Build</div><div class="sv">We map the template, organize the source library, and build the first version around one live proposal.</div></div>
+      <div class="step"><div class="sl">Handoff</div><div class="sv">You receive a section-by-section narrative and image package in the order your template expects.</div></div>
+      <div class="step"><div class="sl">You finish</div><div class="sv">You place and polish in InDesign. The design bar and the final call stay with Kadre.</div></div>
     </div>
+    <div class="outcome"><b>Outcome:</b> the hunting, repeated rewriting, and image-swapping stop eating the week. The work that makes Kadre’s proposals feel like Kadre’s stays with you.</div>
+    <div class="note">The first pilot is where we test the real result. The current target is to move toward a 20–40 minute place-and-polish after the package is ready, not to pretend that result is proven before the build.</div>
+  </div>
 
-    <div class="notthis" style="margin-top:14px">
-      <b>What this is not.</b> Not hourly. Not an MSP. We don't do your business development — you own the list, the relationships, and the outreach. We build and run the tools behind it, in your systems, and you own the data.
-    </div>
-  </section>
+  <div class="notthis" style="margin-top:14px">
+    <b>What this is not.</b> We are not taking over Kadre’s business development, choosing the relationships, or replacing the design practice. We are building and maintaining the machinery behind the work in Kadre’s systems, with Kadre’s data.
+  </div>
+</section>
 
-  <!-- ROADMAP -->
+
+  <!-- AFTER THE FIRST BUILD -->
   <section id="roadmap">
-    <div class="eyebrow">Where this goes</div>
-    <h2 class="hh">The path, not just the pitch</h2>
-    <div class="lede" style="margin-bottom:18px"><p>This starts small on purpose. Here's how it grows.</p></div>
+    <div class="eyebrow">The initial operating cycle</div>
+    <h2 class="hh">Build it, put it to work, then decide what comes next.</h2>
+    <div class="lede" style="margin-bottom:18px"><p>The first build is designed for roughly three weeks, assuming we have the materials and access we need. The first 90 days after launch are the initial operating cycle: we put the system into real use, see what the work asks from it, and make the handoff trustworthy.</p></div>
 
-    <div class="phase">
-      <div class="pnum">01 · Discovery</div>
-      <div class="ptitle">Building it to how you actually work</div>
-      <div class="pdesc">You already told us what matters. This confirms exactly how to build it.</div>
-      <div class="pcheck"><span class="ck">✓</span> Organize contacts the way you described — by sector: public/private, higher-ed, tech offices</div>
-      <div class="pcheck"><span class="ck">✓</span> Map your real proposal + award cadence, spring through fall</div>
-      <div class="pcheck"><span class="ck">✓</span> Confirm the Factor connection and your template's real sections</div>
-      <div class="phigh">The lowest-risk way to find out this is real before committing to the build.</div>
-    </div>
+  <div class="phase">
+    <div class="pnum">01 · BUILD THE LEAD DESK</div>
+    <div class="ptitle">Start with the questions Kadre actually asks.</div>
+    <div class="pdesc">We agree on the five to ten fields, target types, sources, and confidence rules. We run a real sample list and establish the output path.</div>
+    <div class="pcheck"><span class="ck">✓</span> Target and field definition with Nerin and Jada</div>
+    <div class="pcheck"><span class="ck">✓</span> Sample enrichment run against Kadre’s actual targets</div>
+    <div class="pcheck"><span class="ck">✓</span> Factor sync attempt if private API access and capability allow it, otherwise dashboard or import/export</div>
+    <div class="phigh">Done looks like a Lead Desk output Kadre can review and use.</div>
+  </div>
 
-    <div class="phase">
-      <div class="pnum">02 · Build</div>
-      <div class="ptitle">The two Workers, live in your systems</div>
-      <div class="pdesc">What you're buying today.</div>
-      <div class="pcheck"><span class="ck">✓</span> Proposal Automation running on a real proposal, so you see it work first</div>
-      <div class="pcheck"><span class="ck">✓</span> Lead Management researching + landing clean in Factor</div>
-      <div class="pcheck"><span class="ck">✓</span> We run and maintain both, tuned as you use them</div>
-      <div class="phigh">Two working systems you own — not a report.</div>
-    </div>
+  <div class="phase">
+    <div class="pnum">02 · BUILD THE PROPOSAL DRAFTER</div>
+    <div class="ptitle">Run the first real proposal through the handoff.</div>
+    <div class="pdesc">We collect the template, past work, image sources, and one live opportunity, then organize the first package around how Kadre finishes.</div>
+    <div class="pcheck"><span class="ck">✓</span> Proposal sections mapped to Kadre’s real template</div>
+    <div class="pcheck"><span class="ck">✓</span> Past projects and images organized for reuse</div>
+    <div class="pcheck"><span class="ck">✓</span> One real proposal package produced and reviewed</div>
+    <div class="phigh">Done looks like a real handoff you can place and finish in InDesign.</div>
+  </div>
 
-    <div class="phase">
-      <div class="pnum">03 · Grow</div>
-      <div class="ptitle">As more comes online</div>
-      <div class="pdesc">Where the relationship goes next — not promised, just the shape.</div>
-      <div class="pcheck"><span class="ck">✓</span> A bigger audit maps the rest of your ops as it makes sense</div>
-      <div class="pcheck"><span class="ck">✓</span> New Workers added one at a time, each scoped like this one</div>
-      <div class="pcheck"><span class="ck">✓</span> Designed so each piece stands alone — never locked into a bigger commitment than you want</div>
-      <div class="phigh">Nothing here is a hard sell for later. It's just the honest shape of how firms like yours actually grow with us.</div>
-    </div>
-  </section>
+  <div class="phase">
+    <div class="pnum">03 · RUN IT IN REAL WORK</div>
+    <div class="ptitle">Give the first operating cycle time to show us what it needs.</div>
+      <div class="pdesc">We watch both systems in real use, handle edge cases and drift, and tune the handoff against actual proposal and lead work. This is where the first build becomes something Kadre can rely on.</div>
+    <div class="pcheck"><span class="ck">✓</span> Review the first Lead Desk output and real proposal use</div>
+    <div class="pcheck"><span class="ck">✓</span> Fix bugs and make small agreed adjustments as the work reveals them</div>
+      <div class="pcheck"><span class="ck">✓</span> Review the 90 days and decide how Kadre OS should grow next</div>
+      <div class="phigh">The first operating cycle makes the system trustworthy. The next piece is a decision, not a surprise.</div>
+  </div>
+  <div class="angle"><b>Our hope:</b> this is the beginning of a longer working relationship. Systems like this get better with support because real work always finds the edge cases a demo cannot. We want to stay close enough to see what changes, keep the systems healthy, and help decide what is worth building next.</div>
+</section>
+
 
   <!-- PROOF -->
   <section id="proof">
-    <div class="eyebrow">Proof · AEC</div>
-    <h2 class="hh">We speak architecture and mission-driven work</h2>
-    <div class="lede" style="margin-bottom:8px;max-width:none"><p>Our co-founder sits on the AIA LA TAP Committee — the technology and practice group that sets direction for the profession. 25 years in professional-services technology, enough to know how principals think and where the hours actually go. We've done this work <em>inside</em> architecture and design studios — not adjacent to them.</p></div>
-    <div class="proofgrid">
-      <div class="tcard">
-        <div class="tqz">"Working with Clearworks helped us not only identify but clearly name our biggest challenges — and as they say, naming the problem is the first step toward solving it."</div>
-        <div class="tattr">Melinda Prisco · Director of Operations · Studio PCH</div>
-      </div>
-      <div class="tcard">
-        <div class="tqz">"Clearworks AI helped us outline a migration timeline, monitored the conversion of files, gave clear instruction to employees, and provided assistance post go-live. Our implementation was smooth and painless."</div>
-        <div class="tattr">Robin Nanney · Founder · Robin Nanney Studio</div>
-      </div>
-      <div class="tcard">
-        <div class="tqz">"Somebody other than me saying we can do this, and we can do this safely — that was the green light we needed."</div>
-        <div class="tattr">Catherine Suitor · Executive Director · L.A. Alliance Foundation</div>
-      </div>
-      <div class="tcard">
-        <div class="tqz">"Clearworks are exceptional teachers, highly patient, and deeply respectful of mission-driven work."</div>
-        <div class="tattr">Dr. Alexandra Chen · Executive Director · Early Light Foundation</div>
-      </div>
-    </div>
-    <div class="slabel" style="margin:26px 4px 10px">Our AEC track record — firms we've partnered with directly</div>
-    <div class="results" style="grid-template-columns:1fr 1fr">
-      <div class="rstat" style="text-align:left"><div class="rn" style="font-size:15px;font-weight:600">Studio PCH</div><div class="rl">Busywork Audit — mapped where principal time leaked, found the highest-leverage automations</div></div>
-      <div class="rstat" style="text-align:left"><div class="rn" style="font-size:15px;font-weight:600">Robin Nanney Studio</div><div class="rl">AI builds + guided full stack migration, team kept aligned with minimal disruption</div></div>
-      <div class="rstat" style="text-align:left"><div class="rn" style="font-size:15px;font-weight:600">RELM</div><div class="rl">IT advisory — infrastructure + strategic recommendations for a growing practice</div></div>
-      <div class="rstat" style="text-align:left"><div class="rn" style="font-size:15px;font-weight:600">OFFICEUNTITLED</div><div class="rl">Ongoing technical guidance + tool strategy for a forward-thinking architecture office</div></div>
-    </div>
-    <div class="note">And the Kadre OS demo above runs on your own real projects — The Sierra, Hub City Heights, The Alvarado. That's the research depth you'd get on day one.</div>
-  </section>
+  <div class="eyebrow">Why this fits Kadre</div>
+  <h2 class="hh">The work is close to what Clearworks already does.</h2>
+  <div class="lede" style="margin-bottom:8px;max-width:none"><p>Clearworks builds practical systems for teams where the person with the most context is also the person carrying the most unfinished work. Josh ran a cybersecurity company for 25 years and now works with firms that want the busywork to disappear without handing their judgment to a black box.</p></div>
+  <div class="proofgrid">
+    <div class="tcard"><div class="tqz">"Working with Clearworks helped us not only identify but clearly name our biggest challenges — and as they say, naming the problem is the first step toward solving it."</div><div class="tattr">Melinda Prisco · Director of Operations · Studio PCH</div></div>
+    <div class="tcard"><div class="tqz">"Clearworks AI helped us outline a migration timeline, monitored the conversion of files, gave clear instruction to employees, and provided assistance post go-live. Our implementation was smooth and painless."</div><div class="tattr">Robin Nanney · Founder · Robin Nanney Studio</div></div>
+    <div class="tcard"><div class="tqz">"Somebody other than me saying we can do this, and we can do this safely — that was the green light we needed."</div><div class="tattr">Catherine Suitor · Executive Director · L.A. Alliance Foundation</div></div>
+    <div class="tcard"><div class="tqz">"Clearworks are exceptional teachers, highly patient, and deeply respectful of mission-driven work."</div><div class="tattr">Dr. Alexandra Chen · Executive Director · Early Light Foundation</div></div>
+  </div>
+  <div class="note">The first real proof for Kadre will be the first real target and the first real proposal. The demo is there to show the shape, not to pretend the work is already finished.</div>
+</section>
+
 
   <!-- PRICING -->
   <section id="pricing">
-    <div class="eyebrow">Investment</div>
-    <h2 class="hh">Two numbers</h2>
-    <div class="price">
-      <div class="pcard">
-        <div class="pl">Setup · one-time</div>
-        <div class="pn">Tailored</div>
-        <div class="pd">One-time build: both Workers into your systems, Factor connection confirmed, Proposal Automation live on a real proposal so you see it work first. Exact number we finalize on our call.</div>
-      </div>
-      <div class="pcard">
-        <div class="pl">Monthly · run + maintain</div>
-        <div class="pn">Tailored<small> /mo</small></div>
-        <div class="pd">We run and maintain the Workers, keep research current, tune the drafts, and add the next Worker as your OS grows. Monthly figure finalized on our call.</div>
-      </div>
+  <div class="eyebrow">Investment</div>
+  <h2 class="hh">A defined first build, followed by an initial operating cycle.</h2>
+  <div class="price">
+    <div class="pcard">
+      <div class="pl">Initial build and launch</div>
+      <div class="pn">$5,000</div>
+      <div class="pd">Build the Lead Desk and Proposal Drafter, attempt the Factor sync if private API access and capability allow it, establish the fallback if needed, run one real proposal pilot, make one bounded adjustment round, and hand off the working system.</div>
     </div>
-    <div class="roi">
-      The list-keeping and the proposal production go one of two ways: either they eat your and Jada's week — or they quietly don't get done, the list goes stale, proposals slip, and the right people get reached late. Either way it costs you work you'd have won. Kadre OS takes it off the table. <b>Win one project a year and the whole thing is a rounding error.</b>
+    <div class="pcard">
+      <div class="pl">Initial operating cycle</div>
+      <div class="pn">$500 <small>/ month · 90-day minimum</small></div>
+      <div class="pd">The first 90 days after launch are where we put the system into real use, monitor the two systems, fix bugs in the agreed first-build scope, handle edge cases, and tune what needs tuning. Kadre keeps ownership of its accounts, data, and third-party subscriptions, and those vendors bill Kadre directly. After the initial operating cycle, ongoing care continues month to month if Kadre wants Clearworks to stay close.</div>
     </div>
-  </section>
+  </div>
+    <div class="roi">The first purchase is the build plus an initial operating cycle. The Kadre Pursuit System is the first part of Kadre OS, and the next piece is chosen when there is a clear reason to build it. Each expansion gets its own result, inputs, timeline, and price inside the same operating system.</div>
+</section>
+
 
   <!-- FAQ -->
   <section id="faq">
-    <div class="eyebrow">FAQ</div>
-    <h2 class="hh">The quick answers</h2>
-    <div class="q"><div class="qq">Are you taking over my business development?</div><div class="qa">No. You own the list, the people, and the outreach. Lead Desk just does the research and keeps the list clean behind you.</div></div>
-    <div class="q"><div class="qq">Does this replace my proposal design?</div><div class="qa">No. It hands you an ~80% content package organized to your own InDesign template — you place and finish. Your design bar is what wins the work; we don't touch it.</div></div>
-    <div class="q"><div class="qq">Where does it live?</div><div class="qa">In your own systems — your stack, your data. It lands in Factor, import-ready. You own everything.</div></div>
-    <div class="q"><div class="qq">How fast is it running?</div><div class="qa">Setup gets the Proposal Drafter live on a real proposal first, so you see it produce before the full build. Then it runs.</div></div>
-  </section>
+  <div class="eyebrow">FAQ</div>
+  <h2 class="hh">The quick answers</h2>
+  <div class="q"><div class="qq">Are you taking over our business development?</div><div class="qa">No. You choose who to pursue and own the relationships and outreach. We build and maintain the system behind that work.</div></div>
+  <div class="q"><div class="qq">Is this a generic lead scraper?</div><div class="qa">No. The Lead Desk is built around the five to ten fields, checks, sources, and confidence rules that Kadre actually needs.</div></div>
+  <div class="q"><div class="qq">Does this replace proposal design?</div><div class="qa">No. It prepares the content and image package. You finish it in the template you already use, and the design judgment stays with Kadre.</div></div>
+  <div class="q"><div class="qq">What happens with Factor?</div><div class="qa">If Nerin gets access to the private API and it exposes what we need, we can sync there. If not, we use the simplest dashboard or import/export path.</div></div>
+  <div class="q"><div class="qq">How long does the first build take?</div><div class="qa">The first working version is designed for roughly three weeks, assuming we receive the template, source material, live proposal, target examples, and access details on time.</div></div>
+  <div class="q"><div class="qq">What happens after the first build?</div><div class="qa">The first build moves into a 90-day initial operating cycle at $500/month. We use that time to put the systems into real work, handle edge cases, and tune what needs tuning. After that, ongoing care continues month to month if Kadre wants Clearworks to stay close.</div></div>
+  <div class="q"><div class="qq">Why is the initial operating cycle required?</div><div class="qa">Things change fast right now. A live system meets real inputs, real platform behavior, and real use that no demo can fully predict. The initial operating cycle gives us enough time to make the handoff real and see what the work asks from the system.</div></div>
+  <div class="q"><div class="qq">How does Kadre OS grow?</div><div class="qa">The Kadre Pursuit System is the first part of the larger Kadre OS. As the business changes, Kadre can choose the next operating problem worth solving. Each new piece is a scoped engagement with its own result, timeline, and price, built to fit the same system.</div></div>
+</section>
+
 
   <!-- ACCEPT -->
   <section id="accept">
-    <div class="accept">
-      <div class="eyebrow">Ready when you are</div>
-      <h2 class="hh">Start Kadre OS</h2>
-      <div class="lede" style="margin:0 auto"><p>Accept below to open the agreement and get started. Questions first? Just reply — happy to walk through any of it.</p></div>
-      <a class="bigbtn" href="mailto:josh@clearworks.ai?subject=Kadre%20OS%20—%20let%27s%20start" target="_blank" rel="noopener">Accept &amp; get started →</a>
-      <div class="fine">Secure e-sign + payment handled through our standard agreement.</div>
-    </div>
-  </section>
+  <div class="accept">
+    <div class="eyebrow">Ready when you are</div>
+    <h2 class="hh">Start the Kadre Pursuit System.</h2>
+    <div class="lede" style="margin:0 auto"><p>Accept below and we will send the agreement and set the first build in motion. We will start with the Lead Desk fields, the proposal template, and one real opportunity so the system is built around Kadre’s work rather than a generic example. The first 90 days after launch are the initial operating cycle.</p></div>
+    <a class="bigbtn" href="[MOXIE_LINK]" target="_blank" rel="noopener">Start the first build →</a>
+    <div class="fine">The first build and initial 90-day operating cycle are limited to the scope described above. After that, ongoing care continues only if Kadre wants it. New parts of Kadre OS, major integrations, major template changes, and materially higher volume are scoped and agreed before work begins.</div>
+  </div>
+</section>
+
 
 </div>
 
